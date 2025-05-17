@@ -1,0 +1,997 @@
+ <script> 
+const knowledgeBase = {
+  "questions_and_answers": [
+    // ... (paste all the question/answer pairs from your JSON here)
+    // I've included a few samples below - you should replace with your full dataset
+    {
+      "number": 1,
+      "question": "What are the admission requirements for undergraduate programs?",
+      "answer": "The admission requirements include five (5) credits in relevant subjects including Mathematics and English in not more than two sittings in WAEC, NECO, or NABTEB examinations."
+    },
+    {
+      "number": 2,
+      "question": "How do I apply to Veritas University?",
+      "answer": "You can apply online through the university's portal or by visiting the admissions office on campus."
+    },
+    {
+      "number": 3,
+      "question": "What is the application deadline for this academic year?",
+      "answer": "The application deadline varies each year; please check the admissions section of the university website for updated information."
+    },
+     {
+      "number": 4,
+      "question": "Do you offer online applications?",
+      "answer": "Yes, Veritas University allows online applications through its admissions portal."
+    },
+    {
+      "number": 5,
+      "question": "What documents are required for the application process?",
+      "answer": "You will need your academic transcripts, WAEC/NECO/NABTEB results, birth certificate, and a passport photograph."
+    },
+    {
+      "number": 6,
+      "question": "Can international students apply to Veritas University?",
+      "answer": "Yes, international students are welcome and must meet the admission requirements and provide evidence of English language proficiency if applicable."
+    },
+    {
+      "number": 7,
+      "question": "Is there an entrance exam for admission?",
+      "answer": "Yes, prospective students may be required to take an entrance examination depending on the program applied for."
+    },
+    {
+      "number": 8,
+      "question": "How can I check my admission status?",
+      "answer": "You can check your admission status on the university's online portal using your application number."
+    },
+    {
+      "number": 9,
+      "question": "What are the minimum academic qualifications needed for admission?",
+      "answer": "Candidates must have five (5) credits in relevant subjects including English and Mathematics in not more than two sittings."
+    },
+    {
+      "number": 10,
+      "question": "Are there any specific requirements for transfer students?",
+      "answer": "Transfer students must provide transcripts from their previous institution and meet the minimum academic requirements."
+    },
+    {
+      "number": 11,
+      "question": "What courses are offered at Veritas University?",
+      "answer": "Veritas University offers a wide range of courses across faculties such as Humanities, Natural Sciences, Social Sciences, Management Sciences, and Education."
+    },
+    {
+      "number": 12,
+      "question": "Does the university offer postgraduate programs?",
+      "answer": "Yes, Veritas University offers a variety of postgraduate programs in different fields of study."
+    },
+    {
+      "number": 13,
+      "question": "What are the available faculties and departments in the university?",
+      "answer": "The university has faculties such as Humanities, Natural Sciences, Social Sciences, Management Sciences, and Education, each housing various departments."
+    },
+    {
+      "number": 14,
+      "question": "Are there any scholarship programs for students?",
+      "answer": "Yes, Veritas University offers scholarships based on academic excellence and financial need."
+    },
+    {
+      "number": 15,
+      "question": "What is the duration of undergraduate programs?",
+      "answer": "The duration of undergraduate programs is typically four years, depending on the course of study."
+    },
+    {
+      "number": 16,
+      "question": "Does the university offer part-time programs?",
+      "answer": "Yes, Veritas University offers part-time programs for certain courses."
+    },
+    {
+      "number": 17,
+      "question": "Are there any online courses available?",
+      "answer": "Currently, Veritas University offers a selection of online courses; for more information, visit the university's e-learning portal."
+    },
+    {
+      "number": 18,
+      "question": "What is the grading system at Veritas University?",
+      "answer": "The university uses a 5-point grading scale, where grades range from A (5.0 points) to F (0 points)."
+    },
+    {
+      "number": 19,
+      "question": "Do you offer professional courses or certifications?",
+      "answer": "Yes, Veritas University offers professional courses and certifications in addition to degree programs."
+    },
+    {
+      "number": 20,
+      "question": "Can I change my course after admission?",
+      "answer": "Yes, but course change requests are subject to approval by the relevant faculty and must meet specific criteria."
+    },
+    {
+      "number": 21,
+      "question": "What is the tuition fee for undergraduate programs?",
+      "answer": "Tuition fees vary by program; please visit the university website or contact the bursary for detailed information."
+    },
+    {
+      "number": 22,
+      "question": "Are there any additional fees apart from tuition?",
+      "answer": "Yes, additional fees may include accommodation, laboratory fees, and other administrative charges."
+    },
+    {
+      "number": 23,
+      "question": "How can I pay my tuition fees?",
+      "answer": "Tuition fees can be paid through the university's designated bank accounts or online payment portals."
+    },
+    {
+      "number": 24,
+      "question": "Does the university offer financial aid or scholarships?",
+      "answer": "Yes, financial aid and scholarships are offered to eligible students based on merit and financial need."
+    },
+    {
+      "number": 25,
+      "question": "What are the eligibility criteria for scholarships?",
+      "answer": "Eligibility criteria include academic excellence, financial need, and in some cases, community service or leadership qualities."
+    },
+    {
+      "number": 26,
+      "question": "Are there payment plans for tuition fees?",
+      "answer": "Yes, the university offers flexible payment plans to ease the financial burden on students."
+    },
+    {
+      "number": 27,
+      "question": "Can international students apply for financial aid?",
+      "answer": "Yes, international students can apply for certain scholarships and financial aid programs."
+    },
+    {
+      "number": 28,
+      "question": "Are there any fees for late payment?",
+      "answer": "Yes, late payments may attract additional charges as specified by the university's financial policies."
+    },
+    {
+      "number": 29,
+      "question": "How can I get a refund if I withdraw my application?",
+      "answer": "Refund policies are outlined by the university; contact the bursary department for details on the procedure."
+    },
+    {
+      "number": 30,
+      "question": "Does Veritas University provide student loans?",
+      "answer": "Currently, student loans are not directly provided by the university but may be accessed via external financial institutions."
+    },
+    {
+      "number": 31,
+      "question": "What facilities are available on campus?",
+      "answer": "Facilities include modern classrooms, laboratories, a library, sports facilities, and residential hostels."
+    },
+    {
+      "number": 32,
+      "question": "Is there on-campus housing for students?",
+      "answer": "Yes, the university provides on-campus accommodation for students."
+    },
+    {
+      "number": 33,
+      "question": "What are the extracurricular activities offered?",
+      "answer": "Extracurricular activities include sports, cultural events, student clubs, and religious organizations."
+    },
+    {
+      "number": 34,
+      "question": "Does the university have a library?",
+      "answer": "Yes, Veritas University has a well-equipped library with physical and digital resources."
+    },
+    {
+      "number": 35,
+      "question": "What are the library opening hours?",
+      "answer": "The library is typically open from 8:00 AM to 8:00 PM on weekdays and 10:00 AM to 4:00 PM on weekends."
+    },
+    {
+      "number": 36,
+      "question": "Are there computer labs available for students?",
+      "answer": "Yes, the university provides computer labs with internet access for student use."
+    },
+    {
+      "number": 37,
+      "question": "Is there WiFi access on campus?",
+      "answer": "Yes, WiFi is available throughout the campus for registered students."
+    },
+    {
+      "number": 38,
+      "question": "What security measures are in place on campus?",
+      "answer": "The campus has 24/7 security personnel, CCTV surveillance, and controlled access to residential areas."
+    },
+    {
+      "number": 39,
+      "question": "Are there dining facilities on campus?",
+      "answer": "Yes, the university has a cafeteria and several eateries that serve meals at affordable prices."
+    },
+    {
+      "number": 40,
+      "question": "What transportation options are available to students?",
+      "answer": "The university provides shuttle services, and there are public transportation options available near campus."
+    },
+ 
+    {
+      "number": 41,
+      "question": "Does the university offer career counseling services?",
+      "answer": "Yes, career counseling services are available to help students with career planning and job placements."
+    },
+    {
+      "number": 42,
+      "question": "How can I book an appointment with a counselor?",
+      "answer": "Appointments can be booked online through the university portal or by visiting the counseling center on campus."
+    },
+    {
+      "number": 43,
+      "question": "Are there academic advisors available for students?",
+      "answer": "Yes, each department has academic advisors who guide students throughout their academic journey."
+    },
+    {
+      "number": 44,
+      "question": "What mental health services are provided by the university?",
+      "answer": "The university offers mental health support, including counseling sessions and therapy workshops for students."
+    },
+    {
+      "number": 45,
+      "question": "Can I get advice on choosing the right course?",
+      "answer": "Yes, academic advisors and counselors are available to assist students in selecting the course that best fits their interests and goals."
+    },
+    {
+      "number": 46,
+      "question": "Where is the counseling center located?",
+      "answer": "The counseling center is located in the student services building on the main campus."
+    },
+    {
+      "number": 47,
+      "question": "Does the university provide support for students with disabilities?",
+      "answer": "Yes, the university offers various support services and accommodations for students with disabilities."
+    },
+    {
+      "number": 48,
+      "question": "Are there workshops available to improve study skills?",
+      "answer": "Yes, study skills and time management workshops are regularly organized for students."
+    },
+    {
+      "number": 49,
+      "question": "How can I contact the student support office?",
+      "answer": "You can contact the student support office through email, phone, or by visiting the office on campus."
+    },
+    {
+      "number": 50,
+      "question": "Is there a mentorship program available for students?",
+      "answer": "Yes, the university provides mentorship programs to connect students with faculty and alumni mentors."
+    },
+    {
+      "number": 51,
+      "question": "What is the history of Veritas University?",
+      "answer": "Veritas University was established by the Catholic Bishops Conference of Nigeria to provide quality education rooted in moral and spiritual values."
+    },
+    {
+      "number": 52,
+      "question": "Where is Veritas University located?",
+      "answer": "The university is located in Abuja, Nigeria."
+    },
+    {
+      "number": 53,
+      "question": "How can I contact the university administration?",
+      "answer": "You can contact the administration through the official phone numbers or email provided on the university website."
+    },
+    {
+      "number": 54,
+      "question": "Who is the current Vice-Chancellor of Veritas University?",
+      "answer": "The current Vice-Chancellor is Rev. Prof. Hyacinth E. Ichoku."
+    },
+    {
+      "number": 55,
+      "question": "What is the official email for admissions inquiries?",
+      "answer": "The official email for admissions inquiries is admissions@veritas.edu.ng."
+    },
+    {
+      "number": 56,
+      "question": "How can I report a complaint or issue?",
+      "answer": "You can report complaints or issues to the student affairs office or via the designated complaint email listed on the website."
+    },
+    {
+      "number": 57,
+      "question": "Are there job opportunities for students on campus?",
+      "answer": "Yes, the university offers part-time job opportunities for students through the work-study program."
+    },
+    {
+      "number": 58,
+      "question": "How do I request my academic transcript?",
+      "answer": "To request an academic transcript, you need to fill out a request form and submit it to the registry department."
+    },
+    {
+      "number": 59,
+      "question": "What is the university's plagiarism policy?",
+      "answer": "The university has a strict anti-plagiarism policy and requires students to submit original work."
+    },
+    {
+      "number": 60,
+      "question": "How can I stay updated with university news and announcements?",
+      "answer": "You can stay updated by visiting the university's website or following its official social media channels."
+    },
+    {
+      "number": 61,
+      "question": "What is the vision of Veritas University?",
+      "answer": "The vision of Veritas University is to be a center of excellence in learning and research, dedicated to the holistic development of students."
+    },
+    {
+      "number": 62,
+      "question": "What is the mission of Veritas University?",
+      "answer": "The mission of Veritas University is to provide quality and value-based education that fosters intellectual, moral, and spiritual growth."
+    },
+    {
+      "number": 63,
+      "question": "Does Veritas University have a dress code for students?",
+      "answer": "Yes, the university enforces a dress code to promote discipline and professionalism among students."
+    },
+    {
+      "number": 64,
+      "question": "What are the rules for attending lectures?",
+      "answer": "Attendance is mandatory, and students must attend at least 75% of lectures to be eligible for examinations."
+    },
+    {
+      "number": 65,
+      "question": "Are parents allowed to visit students on campus?",
+      "answer": "Yes, parents and guardians are allowed to visit students during designated visiting hours."
+    },
+    {
+      "number": 66,
+      "question": "Is there a student handbook available?",
+      "answer": "Yes, the university provides a student handbook that contains important policies and guidelines."
+    },
+    {
+      "number": 67,
+      "question": "What disciplinary measures are in place for misconduct?",
+      "answer": "Disciplinary actions range from warnings and fines to suspension or expulsion, depending on the severity of the misconduct."
+    },
+    {
+      "number": 68,
+      "question": "Are students required to participate in community service?",
+      "answer": "Yes, community service is a mandatory part of the curriculum to foster social responsibility among students."
+    },
+    {
+      "number": 69,
+      "question": "Can students take a break from their studies?",
+      "answer": "Yes, students can apply for a leave of absence, subject to approval from the university administration."
+    },
+    {
+      "number": 70,
+      "question": "What is the role of the student affairs office?",
+      "answer": "The student affairs office oversees student welfare, organizes extracurricular activities, and handles disciplinary matters."
+    },
+    {
+      "number": 71,
+      "question": "Does the university have a chapel or worship center?",
+      "answer": "Yes, Veritas University has a chapel where students can participate in religious activities."
+    },
+    {
+      "number": 72,
+      "question": "Is participation in religious activities mandatory?",
+      "answer": "While the university encourages spiritual growth, participation in religious activities is not mandatory for all students."
+    },
+    {
+      "number": 73,
+      "question": "Does the university organize career fairs?",
+      "answer": "Yes, annual career fairs are organized to connect students with potential employers."
+    },
+    {
+      "number": 74,
+      "question": "Are there internship opportunities for students?",
+      "answer": "Yes, the university collaborates with industries to provide internship opportunities for students."
+    },
+    {
+      "number": 75,
+      "question": "What is the process for withdrawing from a course?",
+      "answer": "Students must fill out a course withdrawal form and get approval from their department and faculty."
+    },
+    {
+      "number": 76,
+      "question": "Does Veritas University have a health center?",
+      "answer": "Yes, the university has a health center that provides medical care to students and staff."
+    },
+    {
+      "number": 77,
+      "question": "What medical services are available at the health center?",
+      "answer": "The health center offers consultations, treatments, and emergency services for students and staff."
+    },
+    {
+      "number": 78,
+      "question": "Can students get vaccinated at the university health center?",
+      "answer": "Yes, certain vaccinations are available at the health center."
+    },
+    {
+      "number": 79,
+      "question": "What steps should I take if I lose my student ID card?",
+      "answer": "Report the lost ID card to the student affairs office and apply for a replacement."
+    },
+    {
+      "number": 80,
+      "question": "Are there sports facilities on campus?",
+      "answer": "Yes, Veritas University has facilities for sports like football, basketball, volleyball, and table tennis."
+    },
+    {
+      "number": 81,
+      "question": "Does Veritas University have a sports team?",
+      "answer": "Yes, the university has sports teams that participate in inter-university competitions."
+    },
+    {
+      "number": 82,
+      "question": "How can students access their exam results?",
+      "answer": "Students can access their exam results through the university's online portal."
+    },
+    {
+      "number": 83,
+      "question": "Does the university organize cultural festivals?",
+      "answer": "Yes, annual cultural festivals are organized to celebrate diversity and promote unity."
+    },
+    {
+      "number": 84,
+      "question": "Can students propose new clubs or organizations?",
+      "answer": "Yes, students can propose new clubs by submitting a proposal to the student affairs office."
+    },
+    {
+      "number": 85,
+      "question": "Does the university provide guidance for further studies?",
+      "answer": "Yes, academic advisors provide guidance on postgraduate studies and research opportunities."
+    },
+    {
+      "number": 86,
+      "question": "What is the alumni network like?",
+      "answer": "The university has an active alumni network that offers mentoring and networking opportunities."
+    },
+    {
+      "number": 87,
+      "question": "Is there a lost and found office on campus?",
+      "answer": "Yes, lost and found items are managed by the student affairs office."
+    },
+    {
+      "number": 88,
+      "question": "Does the university provide e-learning resources?",
+      "answer": "Yes, Veritas University offers e-learning resources and a digital library for students."
+    },
+    {
+      "number": 89,
+      "question": "What are the library opening hours?",
+      "answer": "The library is open from 8:00 AM to 8:00 PM on weekdays and 10:00 AM to 4:00 PM on weekends."
+    }
+  
+
+  ]
+};
+
+// Chatbot class
+class VeritasUniversityChatbot {
+  constructor(knowledgeBase) {
+    this.knowledgeBase = knowledgeBase;
+    this.questions = knowledgeBase.questions_and_answers.map(qa => qa.question.toLowerCase());
+    this.qaPairs = {};
+    
+    knowledgeBase.questions_and_answers.forEach(qa => {
+      this.qaPairs[qa.question.toLowerCase()] = qa.answer;
+    });
+  }
+
+  findBestMatch(userInput) {
+    userInput = userInput.toLowerCase();
+    
+    // Check for direct match
+    if (this.qaPairs[userInput]) {
+      return userInput;
+    }
+    
+    // Check for similar questions
+    const matches = this.questions.filter(question => 
+      question.includes(userInput) || userInput.includes(question)
+      || this.calculateSimilarity(question, userInput) > 0.6
+    );
+    
+    if (matches.length > 0) {
+      return matches[0]; // Return the first match
+    }
+    
+    return null;
+  }
+
+  // Simple similarity calculation (can be improved)
+  calculateSimilarity(str1, str2) {
+    const set1 = new Set(str1.split(' '));
+    const set2 = new Set(str2.split(' '));
+    const intersection = new Set([...set1].filter(x => set2.has(x)));
+    return intersection.size / Math.max(set1.size, set2.size);
+  }
+
+  getAnswer(question) {
+    const bestMatch = this.findBestMatch(question);
+    if (bestMatch) {
+      return this.qaPairs[bestMatch];
+    } else {
+      return "I'm sorry, I don't have information about that. Please contact the Veritas University administration office for more assistance.";
+    }
+  }
+}
+
+// Initialize the chatbot
+const chatbot = new VeritasUniversityChatbot(knowledgeBase);
+
+// Function to handle user input
+function handleUserInput() {
+  const userInput = document.getElementById('user-input').value;
+  const chatBox = document.getElementById('chat-box');
+  
+  if (userInput.trim() === '') return;
+  
+  // Add user message to chat
+  chatBox.innerHTML += `<div class="user-message">You: ${userInput}</div>`;
+  
+  // Get bot response
+  const response = chatbot.getAnswer(userInput);
+  
+  // Add bot response to chat
+  chatBox.innerHTML += `<div class="bot-message">Veritas Bot: ${response}</div>`;
+  
+  // Clear input field
+  document.getElementById('user-input').value = '';
+  
+  // Scroll to bottom of chat
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Counselling Chat Bot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
+  <style>
+    :root {
+      --primary-color: #0071e3;
+      --primary-light: #2997ff;
+      --bg-color: #08532b;
+      --card-color: #ffffff;
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --border-radius: 18px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    #chat-container {
+      width: 100%;
+      max-width: 420px;
+      height: 700px;
+      background-color: var(--card-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    #header {
+      padding: 20px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    
+    #logo {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
+    }
+    
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    #chat-box {
+      flex: 1;
+      padding: 20px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .message {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: var(--border-radius);
+      font-size: 15px;
+      line-height: 1.4;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .user-message {
+      align-self: flex-end;
+      background-color: var(--primary-color);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+    
+    .bot-message {
+      align-self: flex-start;
+      background-color: #f2f2f7;
+      color: var(--text-primary);
+      border-bottom-left-radius: 4px;
+    }
+    
+    #input-area {
+      padding: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    #user-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    #user-input:focus {
+      border-color: var(--primary-light);
+    }
+    
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--primary-light);
+    }
+    
+    button svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background-color: #f2f2f7;
+      border-radius: var(--border-radius);
+      align-self: flex-start;
+      width: fit-content;
+    }
+    
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--text-secondary);
+      border-radius: 50%;
+      animation: typingAnimation 1.4s infinite ease-in-out;
+    }
+    
+    .typing-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes typingAnimation {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-4px); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* For the welcome message */
+    .welcome-message {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <header id="header">
+      <img src="https://www.veritas.edu.ng/public/image/logo.png" alt="Veritas Logo" id="logo">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+<h1 class="futuristic-heading" data-text="Veritas Counselling">
+  <span class="text-glitch">Veritas Counselling AI</span>
+  <span class="text-particle"></span>
+</h1>
+  <style>
+  
+    .futuristic-heading {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 20px 0;
+    position: relative;
+    text-transform: uppercase;
+  }
+
+  /* ==== 🔥 Effect 1: Glitch Text (Veritas) ==== */
+  .text-glitch {
+    background: linear-gradient(90deg, #065814, #0acf5f, #065814);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    font-style: oblique;
+    display: inline-block;
+    position: relative;
+    animation: gradientFlow 4s linear infinite, glitch 2s infinite;
+  }
+
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  .text-glitch::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-before 1.5s infinite;
+  }
+
+  .text-glitch::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-after 1s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+  }
+
+  /* ==== 💎 Effect 2: Particle Glow (Counselling) ==== */
+  .text-particle {
+    color: #0acf5f;
+    text-shadow: 
+      0 0 10px rgba(10, 207, 95, 0.7),
+      0 0 20px rgba(10, 207, 95, 0.5),
+      0 0 30px rgba(10, 207, 95, 0.3);
+    position: relative;
+    display: inline-block;
+    animation: pulse 1.5s ease infinite, float 3s ease-in-out infinite;
+  }
+
+  .text-particle::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #0acf5f 2%, transparent 70%);
+    opacity: 0;
+    animation: particle-burst 4s infinite;
+  }
+
+  @keyframes particle-burst {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+
+  /* ==== 🌌 Effect 3: Background Hologram ==== */
+  .futuristic-heading::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 60px;
+    background: linear-gradient(90deg, 
+      rgba(6, 88, 20, 0.1) 0%, 
+      rgba(10, 207, 95, 0.3) 50%, 
+      rgba(6, 88, 20, 0.1) 100%);
+    clip-path: polygon(0% 50%, 100% 50%, 80% 100%, 20% 100%);
+    animation: hologram-pulse 6s ease infinite;
+    z-index: -3;
+  }
+
+  @keyframes hologram-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+  }
+
+  /* ==== 🌀 Extra Animations ==== */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(10, 207, 95, 0.7); }
+    50% { text-shadow: 0 0 25px rgba(10, 207, 95, 1); }
+  }
+
+  .text-counselling {
+    color: #0acf5f;
+    text-shadow: 0 0 10px rgba(10, 207, 95, 0.5);
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Gradient Animation */
+  @keyframes gradientFlow {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Pulsing Glow Effect */
+  @keyframes pulse {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(10, 207, 95, 0.5); }
+    50% { opacity: 0.8; text-shadow: 0 0 20px rgba(10, 207, 95, 0.8); }
+  }
+
+  /* Optional: Hover Effects */
+  .futuristic-heading:hover .text-gradient {
+    animation: gradientFlow 1.5s linear infinite;
+  }
+
+  .futuristic-heading:hover .text-counselling {
+    animation: pulse 1s ease-in-out infinite;
+  }
+</style>
+</h1>
+    </header>
+    
+    <div id="chat-box">
+      <div class="welcome-message">
+        Welcome to Veritas Counselling. How can I help you today?
+      </div>
+      <!-- Messages will appear here -->
+    </div>
+    
+    <div id="input-area">
+      <input type="text" id="user-input" placeholder="Ask about Veritas University..." autocomplete="off">
+      <button onclick="handleUserInput()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function handleUserInput() {
+      const userInput = document.getElementById('user-input');
+      const message = userInput.value.trim();
+      
+      if (message) {
+        // Add user message to chat
+        addMessage(message, 'user');
+        userInput.value = '';
+        
+        // Show typing indicator
+        showTyping();
+        
+        // Simulate bot response after a delay
+        setTimeout(() => {
+          removeTyping();
+          const botResponse = getBotResponse(message);
+          addMessage(botResponse, 'bot');
+        }, 1000 + Math.random() * 1500);
+      }
+    }
+    
+    function addMessage(text, sender) {
+      const chatBox = document.getElementById('chat-box');
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', sender + '-message');
+      messageElement.textContent = text;
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    
+    function showTyping() {
+      const chatBox = document.getElementById('chat-box');
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('typing-indicator');
+      typingElement.id = 'typing-indicator';
+      typingElement.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      chatBox.appendChild(typingElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    
+    function removeTyping() {
+      const typingElement = document.getElementById('typing-indicator');
+      if (typingElement) {
+        typingElement.remove();
+      }
+    }
+    
+    function getBotResponse(userMessage) {
+      // This is a simple response function - you'd replace with your actual bot logic
+      const responses = [
+        "Veritas University offers comprehensive counselling services to support students.",
+        "The counselling center is located on the first floor of the administration building.",
+        "You can schedule an appointment by visiting the student affairs office or calling 09012345678.",
+        "Veritas University provides both academic and personal counselling services.",
+        "Our counsellors are available Monday to Friday from 8am to 4pm.",
+        "All counselling sessions are confidential and free for enrolled students."
+      ];
+      
+      // Simple keyword matching (would be replaced with actual NLP in a real implementation)
+      if (userMessage.toLowerCase().includes('location')) {
+        return "The counselling center is located on the first floor of the administration building, room A12.";
+      } else if (userMessage.toLowerCase().includes('appointment') || userMessage.toLowerCase().includes('schedule')) {
+        return "You can schedule an appointment by:\n1. Visiting the student affairs office\n2. Calling 09012345678\n3. Emailing counselling@veritas.edu.ng";
+      } else if (userMessage.toLowerCase().includes('hour') || userMessage.toLowerCase().includes('time')) {
+        return "Counselling services are available Monday to Friday from 8am to 4pm. Emergency services are available 24/7.";
+      }
+      
+      // Default random response
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+    
+    // Allow sending message with Enter key
+    document.getElementById('user-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+  </script>
+</body>
+</html>

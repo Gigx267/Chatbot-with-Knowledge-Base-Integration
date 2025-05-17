@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas University Investor Hub</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap">
+  <style>
+    :root {
+      --primary-color: #0d2d62;
+      --primary-light: #3a6fc8;
+      --bg-color: #f8f9fa;
+      --card-color: #ffffff;
+      --text-primary: #1d1d1f;
+      --text-secondary: #5e5e5e;
+      --border-radius: 18px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    #chat-container {
+      width: 100%;
+      max-width: 450px;
+      height: 700px;
+      background-color: var(--card-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    #header {
+      padding: 20px 16px 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    #logo {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
+    }
+    
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .subtitle {
+      font-size: 14px;
+      margin-top: 5px;
+      opacity: 0.9;
+    }
+    
+    #chat-box {
+      flex: 1;
+      padding: 20px 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .message {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: var(--border-radius);
+      font-size: 15px;
+      line-height: 1.4;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    .user-message {
+      align-self: flex-end;
+      background-color: var(--primary-color);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+    
+    .bot-message {
+      align-self: flex-start;
+      background-color: #f2f2f7;
+      color: var(--text-primary);
+      border-bottom-left-radius: 4px;
+    }
+    
+    #input-area {
+      padding: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    #user-input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    
+    #user-input:focus {
+      border-color: var(--primary-light);
+    }
+    
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--primary-light);
+    }
+    
+    button svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background-color: #f2f2f7;
+      border-radius: var(--border-radius);
+      align-self: flex-start;
+      width: fit-content;
+    }
+    
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--text-secondary);
+      border-radius: 50%;
+      animation: typingAnimation 1.4s infinite ease-in-out;
+    }
+    
+    .typing-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    @keyframes typingAnimation {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-4px); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .welcome-message {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    
+    .quick-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+    
+    .quick-question {
+      background-color: #eef2f9;
+      border-radius: 15px;
+      padding: 8px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--primary-color);
+      border: 1px solid rgba(13, 45, 98, 0.2);
+    }
+    
+    .quick-question:hover {
+      background-color: #dfe7f6;
+      transform: translateY(-2px);
+    }
+    
+    .disclaimer {
+      font-size: 11px;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: 15px;
+      padding: 0 20px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <header id="header">
+      <img src="https://www.veritas.edu.ng/public/image/logo.png" alt="Veritas Logo" id="logo">
+      <h1>Veritas Investor Hub</h1>
+      <p class="subtitle">Investment opportunities & partnership information</p>
+    </header>
+    
+    <div id="chat-box">
+      <div class="welcome-message">
+        Welcome to Veritas University's Investor Relations Portal. How can we assist with your investment inquiry today?
+        <div class="quick-questions">
+          <div class="quick-question" onclick="askQuestion('What investment opportunities are available?')">Investment Options</div>
+          <div class="quick-question" onclick="askQuestion('How do I invest in research projects?')">Research Funding</div>
+          <div class="quick-question" onclick="askQuestion('What are the tax benefits?')">Tax Benefits</div>
+          <div class="quick-question" onclick="askQuestion('How can I partner with the university?')">Partnerships</div>
+        </div>
+        <div class="disclaimer">
+          This chatbot provides general information only. Please consult with financial advisors before making investment decisions.
+        </div>
+      </div>
+    </div>
+    
+    <div id="input-area">
+      <input type="text" id="user-input" placeholder="Ask about investment opportunities..." autocomplete="off">
+      <button onclick="handleUserInput()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const knowledgeBase = {
+      "questions_and_answers": [
+        {
+          "number": 1,
+          "question": "What investment opportunities are available?",
+          "answer": "Veritas University offers several investment avenues:\n\n1. Endowment Funds: Minimum investment ₦50M with 5-7% annual returns\n2. Infrastructure Development: Campus expansion projects (ROI 8-12%)\n3. Research Grants: Funding for specific research initiatives\n4. Scholarship Funds: Named scholarship endowments\n5. Commercial Ventures: University-affiliated startups\n\nOur investment prospectus details all opportunities."
+        },
+        {
+          "number": 2,
+          "question": "How do I invest in research projects?",
+          "answer": "Research investment options:\n\n• Direct Project Funding: Minimum ₦25M per project\n• Research Chairs: Endowments starting at ₦100M\n• Technology Transfer: Equity in commercialization\n• Collaborative R&D: Joint ventures with industry\n\nAll research investments qualify for 150% tax deduction under Nigerian R&D incentives. Contact our Research Office for current opportunities."
+        },
+        {
+          "number": 3,
+          "question": "What are the tax benefits?",
+          "answer": "Investments in Veritas University qualify for:\n\n• 150% tax deduction on research funding\n• 100% deduction on capital gifts\n• VAT exemption on educational investments\n• Pioneer status benefits for commercial ventures\n• Duty waivers on imported equipment\n\nOur legal team can provide customized tax planning advice."
+        },
+        {
+          "number": 4,
+          "question": "What is the minimum investment amount?",
+          "answer": "Minimum investment thresholds:\n\n• General Endowment: ₦50 million\n• Named Scholarship: ₦25 million\n• Building Naming Rights: ₦500 million\n• Research Project: ₦10 million\n• Startup Incubation: ₦75 million\n\nSmaller donations are welcome through our Annual Fund."
+        },
+        {
+          "number": 5,
+          "question": "How can I partner with the university?",
+          "answer": "Strategic partnership options include:\n\n1. Corporate Training Programs\n2. Technology Transfer Agreements\n3. Executive Education Collaborations\n4. Talent Pipeline Development\n5. Facility Co-Development\n\nPartnerships typically begin with a Memorandum of Understanding. Our Corporate Relations team can guide you."
+        },
+        {
+          "number": 6,
+          "question": "What is the endowment fund performance?",
+          "answer": "Our endowment has achieved:\n\n• 5-year average return: 8.2%\n• 10-year average: 7.5%\n• Portfolio breakdown:\n  - Fixed Income: 40%\n  - Equities: 45%\n  - Alternatives: 15%\n\nAll investments are managed according to UMAA standards with quarterly reporting."
+        },
+        {
+          "number": 7,
+          "question": "Can I specify how my investment is used?",
+          "answer": "Yes, we offer:\n\n• Restricted Gifts: Designated for specific purposes\n• Unrestricted Gifts: Most flexible for university priorities\n• Term Endowments: Time-limited restrictions\n• Quasi-Endowments: Principal may be spent\n\nAll restricted gifts require a gift agreement outlining terms."
+        },
+        {
+          "number": 8,
+          "question": "How are investments managed?",
+          "answer": "Investment oversight includes:\n\n• Board Investment Committee with financial experts\n• Professional asset managers\n• Quarterly performance reviews\n• Annual external audits\n• Compliance with Nigerian university investment guidelines\n\nInvestors receive biannual performance reports."
+        },
+        {
+          "number": 9,
+          "question": "What naming opportunities exist?",
+          "answer": "Naming rights available for:\n\n• Buildings: ₦500M+\n• Academic Departments: ₦250M+\n• Laboratories: ₦100M+\n• Scholarships: ₦25M+\n• Faculty Chairs: ₦150M+\n\nNaming agreements typically last 20 years or in perpetuity."
+        },
+        {
+          "number": 10,
+          "question": "How do I get financial reports?",
+          "answer": "Available documentation:\n\n• Annual Financial Statements (audited)\n• Investment Performance Reports\n• Project-Specific Updates\n• Tax Compliance Certificates\n\nAll accredited investors receive a secure login to our investor portal for real-time access."
+        },
+        {
+          "number": 11,
+          "question": "What ROI can I expect?",
+          "answer": "Projected returns vary by investment type:\n\n• Endowment Funds: 5-7% annually\n• Infrastructure: 8-12% over 10 years\n• Research Commercialization: 15-25% potential\n• Startup Investments: Variable equity returns\n\nAll projections are based on historical performance and market conditions."
+        },
+        {
+          "number": 12,
+          "question": "Are there international investment options?",
+          "answer": "Yes, we accept:\n\n• Foreign currency denominated gifts\n• Cross-border research collaborations\n• International joint ventures\n• Equipment donations\n\nOur Treasury Office handles all FX transactions and can provide currency hedging advice."
+        },
+        {
+          "number": 13,
+          "question": "How does the university use investment income?",
+          "answer": "Endowment income supports:\n\n• Student Financial Aid (35%)\n• Faculty Research (25%)\n• Infrastructure Maintenance (20%)\n• Academic Programs (15%)\n• Administrative Costs (5%)\n\nSpecific allocations can be customized in gift agreements."
+        },
+        {
+          "number": 14,
+          "question": "What due diligence materials are available?",
+          "answer": "We provide:\n\n• 5-year financial statements\n• Investment policy statement\n• Project feasibility studies\n• Market analyses\n• Risk assessment reports\n\nConfidentiality agreements may be required for sensitive information."
+        },
+        {
+          "number": 15,
+          "question": "How can I visit the campus?",
+          "answer": "Investor campus visits include:\n\n• Facility tours\n• Management presentations\n• Student/faculty interactions\n• Project site inspections\n\nContact our Investor Relations office to schedule: investors@veritas.edu.ng or +234 123 456 7890."
+        }
+      ]
+    };
+
+    // Chatbot class
+    class VeritasInvestorChatbot {
+      constructor(knowledgeBase) {
+        this.knowledgeBase = knowledgeBase;
+        this.questions = knowledgeBase.questions_and_answers.map(qa => qa.question.toLowerCase());
+        this.qaPairs = {};
+        
+        knowledgeBase.questions_and_answers.forEach(qa => {
+          this.qaPairs[qa.question.toLowerCase()] = qa.answer;
+        });
+      }
+
+      findBestMatch(userInput) {
+        userInput = userInput.toLowerCase();
+        
+        // Check for direct match
+        if (this.qaPairs[userInput]) {
+          return userInput;
+        }
+        
+        // Check for similar questions
+        const matches = this.questions.filter(question => 
+          question.includes(userInput) || userInput.includes(question)
+          || this.calculateSimilarity(question, userInput) > 0.6
+        );
+        
+        if (matches.length > 0) {
+          return matches[0]; // Return the first match
+        }
+        
+        return null;
+      }
+
+      // Simple similarity calculation
+      calculateSimilarity(str1, str2) {
+        const set1 = new Set(str1.split(' '));
+        const set2 = new Set(str2.split(' '));
+        const intersection = new Set([...set1].filter(x => set2.has(x)));
+        return intersection.size / Math.max(set1.size, set2.size);
+      }
+
+      getAnswer(question) {
+        const bestMatch = this.findBestMatch(question);
+        if (bestMatch) {
+          return this.qaPairs[bestMatch];
+        } else {
+          return "Thank you for your inquiry. For detailed investment discussions, please contact our Investor Relations team at investors@veritas.edu.ng or call +234 123 456 7890. A representative will respond within 24 business hours.";
+        }
+      }
+    }
+
+    // Initialize the chatbot
+    const chatbot = new VeritasInvestorChatbot(knowledgeBase);
+
+    function handleUserInput() {
+      const userInput = document.getElementById('user-input');
+      const message = userInput.value.trim();
+      
+      if (message) {
+        // Add user message to chat
+        addMessage(message, 'user');
+        userInput.value = '';
+        
+        // Show typing indicator
+        showTyping();
+        
+        // Get bot response from the knowledge base
+        setTimeout(() => {
+          removeTyping();
+          const botResponse = chatbot.getAnswer(message);
+          addMessage(botResponse, 'bot');
+        }, 1000 + Math.random() * 1500);
+      }
+    }
+    
+    function askQuestion(question) {
+      document.getElementById('user-input').value = question;
+      handleUserInput();
+    }
+    
+    function addMessage(text, sender) {
+      const chatBox = document.getElementById('chat-box');
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', sender + '-message');
+      
+      // Preserve line breaks in the answer
+      const formattedText = text.replace(/\n/g, '<br>');
+      messageElement.innerHTML = formattedText;
+      
+      chatBox.appendChild(messageElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    
+    function showTyping() {
+      const chatBox = document.getElementById('chat-box');
+      const typingElement = document.createElement('div');
+      typingElement.classList.add('typing-indicator');
+      typingElement.id = 'typing-indicator';
+      typingElement.innerHTML = `
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      `;
+      chatBox.appendChild(typingElement);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    
+    function removeTyping() {
+      const typingElement = document.getElementById('typing-indicator');
+      if (typingElement) {
+        typingElement.remove();
+      }
+    }
+    
+    // Allow sending message with Enter key
+    document.getElementById('user-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+  </script>
+</body>
+</html>
