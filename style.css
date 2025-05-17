@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+
+  /* Swiper
+------------------------------------------------------------- */
+  /* testimonial section style */
+  .swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: black;
+  }
+
+  .swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 10px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px));
+  }
+
+  /* 4.2 Projects Page
+/*----------------------------------------------*/
+
+  .project-content .project-img {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .project-content:hover .project-img {
+    opacity: 0.3;
+  }
+
+  .project-description {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .project-content:hover .project-description {
+    opacity: 1;
+  }
+
+  button.filter-button {
+    border: 0;
+    border-radius: 0px;
+    background: transparent;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button.filter-button.active,
+  button.filter-button:hover {
+    color: #FFFFFF;
+    background: #E54646;
+  }
+
+}

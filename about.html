@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Black Limitless Network</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --gold-primary: #FFD700;
+            --gold-secondary: #b8860b;
+            --text-light: #f5f5f5;
+            --hover-glow: rgba(255, 215, 0, 0.3);
+            --diamond-gradient: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,215,0,0.5) 50%, rgba(255,255,255,0.8) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation - Enhanced */
+        .navbar {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--gold-primary);
+            box-shadow: 0 0 15px var(--hover-glow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, var(--gold-primary) 0%, var(--gold-secondary) 100%);
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12,2L4,12L12,22L20,12L12,2Z' fill='none' stroke='black' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='black'/%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12,2L4,12L12,22L20,12L12,2Z' fill='none' stroke='black' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='black'/%3E%3C/svg%3E") no-repeat center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 0 20px var(--gold-primary);
+            animation: logoPulse 2s infinite;
+        }
+        
+        @keyframes logoPulse {
+            0% { box-shadow: 0 0 10px var(--gold-primary); }
+            50% { box-shadow: 0 0 25px var(--gold-primary); }
+            100% { box-shadow: 0 0 10px var(--gold-primary); }
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-secondary));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: var(--bg-dark);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--gold-primary);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2), .hamburger span:nth-child(3) {
+            top: 10px;
+        }
+        
+        .hamburger span:nth-child(4) {
+            top: 20px;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            transform: rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+        
+        .hamburger.open span:nth-child(4) {
+            top: 10px;
+            width: 0%;
+            left: 50%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-dark);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 80px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .mobile-cta {
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section - About Us */
+        .about-hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./logo.jpg') no-repeat center center/cover;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--gold-primary), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .diamond-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .diamond {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--diamond-gradient);
+            transform: rotate(45deg);
+            animation: diamondFloat 15s infinite linear;
+        }
+        
+        @keyframes diamondFloat {
+            0% { transform: rotate(45deg) translateY(0) translateX(0); opacity: 0.1; }
+            50% { transform: rotate(45deg) translateY(-100px) translateX(100px); opacity: 0.3; }
+            100% { transform: rotate(45deg) translateY(0) translateX(0); opacity: 0.1; }
+        }
+        
+        /* About Mission Section */
+        .mission-section {
+            padding: 6rem 2rem;
+            background: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .mission-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold-primary), transparent);
+        }
+        
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .mission-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+            position: relative;
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .mission-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .mission-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            z-index: 1;
+        }
+        
+        /* Core Values Section */
+        .values-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #121212 0%, #000 100%);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .value-card {
+            background: rgba(20, 20, 20, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,215,0,0.05) 0%, transparent 100%);
+            z-index: -1;
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: #000;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+        }
+        
+        .value-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        /* Leadership Section */
+        .leadership-section {
+            padding: 6rem 2rem;
+            background: var(--bg-dark);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .team-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+        
+        .team-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-primary);
+        }
+        
+        .team-position {
+            font-size: 1rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .team-bio {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold-primary);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #000 0%, #121212 100%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--gold-primary), var(--text-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1521791136064-798 ') no-repeat center center/cover;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-primary);
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .cta-button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .cta-button-secondary {
+            background: transparent;
+            color: var(--gold-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold-primary);
+            cursor: pointer;
+        }
+        
+        .cta-button-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000;
+            padding: 4rem 2rem 2rem;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo .logo {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--gold-primary), var(--gold-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-about {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold-primary);
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .nav-links, .cta-button {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .mission-container {
+                flex-direction: column;
+            }
+            
+            .mission-image {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button-primary, .cta-button-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        /* Floating diamond animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Particle animation */
+        @keyframes particle {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(var(--random-x), var(--random-y)); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <div class="logo"></div>
+            <span class="logo-text">Black Limitless</span>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="howitworks.html">How it works</a>
+            <a href="benefits.html">Benefits</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <a href="register.html">
+            <button class="cta-button">Register Today</button>
+          </a>
+        
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="howitworks.html">How it works</a>
+        <a href="benefits.html">Benefits</a>
+        <a href="contact.html">Contact</a>
+        <a href="register.html">Register Today </a>
+    </div>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="diamond-grid" id="diamondGrid"></div>
+        <div class="hero-content">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Our Limitless Legacy</h1>
+            <p class="hero-subtitle animate__animated animate__fadeInUp">Black Limitless Network, where the elite experience unparalleled access to luxury, premium services, and elite-tier discounts.</p>
+        </div>
+    </section>
+  <!-- Add this section right after the Hero Section -->
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-content">
+            <h2 class="about-title">About Black Limitless Network</h2>
+            <p class="about-subtitle">Redefining Access, Elevating Experiences</p>
+            
+            <div class="about-text">
+                <p>Black Limitless Network emerged from a simple yet powerful vision: to create an ecosystem where excellence recognizes and rewards excellence.</p>
+                
+                <p>We observed that the most exceptional individuals and businesses often operate in silos, missing opportunities for synergistic connections that could amplify their impact and lifestyle. Simultaneously, luxury service providers struggled to connect with their ideal clientele in meaningful ways.</p>
+                
+                <p>Black Limitless Network bridges this gap through a meticulously curated membership model that delivers mutual value</p>
+                
+                <ul class="about-features">
+                    <li><i class="fas fa-check-circle"></i> For members: Unparalleled access to premium services, exclusive events, and elite-tier discounts</li>
+                    <li><i class="fas fa-check-circle"></i> For partners: Direct connection with high-value clients who appreciate and invest in quality</li>
+                    <li><i class="fas fa-check-circle"></i> For both: A trusted network where relationships translate to tangible benefits</li>
+                </ul>
+               <P> a symbiotic network where members and luxury providers elevate each other through mutual value exchange. </P> 
+                
+            </div>
+        </div>
+        
+        <div class="about-media">
+            <!-- Bento-style video container -->
+            <div class="bento-grid">
+                <div class="bento-main">
+                    <div class="video-container">
+                        <video autoplay loop muted playsinline class="smart-video">
+                            <source src="https://videos.pexels.com/video-files/32098956/13684266_640_360_24fps.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay"></div>
+                    </div>
+                </div>
+                <div class="bento-cell bento-cell-1"></div>
+                <div class="bento-cell bento-cell-2"></div>
+                <div class="bento-cell bento-cell-3"></div>
+                <div class="bento-cell bento-cell-4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this CSS to your style section -->
+<style>
+    /* About Section */
+    .about-section {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        align-items: center;
+    }
+    
+    .about-content {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .about-media {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--gold-primary);
+        position: relative;
+        display: inline-block;
+    }
+    
+    .about-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(to right, var(--gold-primary), transparent);
+    }
+    
+    .about-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        opacity: 0.8;
+        margin-bottom: 2rem;
+    }
+    
+    .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        opacity: 0.9;
+    }
+    
+    .about-text p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-features {
+        list-style: none;
+        margin: 2rem 0;
+    }
+    
+    .about-features li {
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+        position: relative;
+    }
+    
+    .about-features i {
+        position: absolute;
+        left: 0;
+        top: 0.3rem;
+        color: var(--gold-primary);
+    }
+    
+    /* Bento Grid */
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        height: 500px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .bento-main {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 3;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .bento-cell {
+        background: rgba(255,215,0,0.1);
+        border: 1px solid rgba(255,215,0,0.2);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .bento-cell:hover {
+        background: rgba(255,215,0,0.2);
+        transform: translateY(-5px);
+    }
+    
+    .bento-cell-1 {
+        grid-column: 4;
+        grid-row: 1;
+        background: url('https://img.freepik.com/free-photo/lady-pouring-champagne-glass-near-disco-ball_23-2147972049.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740') center/cover;
+    }
+    
+    .bento-cell-2 {
+        grid-column: 4;
+        grid-row: 2;
+        background: url('https://img.freepik.com/free-photo/los-angeles-downtown-night-with-urban-buildings-lake_649448-4079.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740') center/cover;
+    }
+    
+    .bento-cell-3 {
+        grid-column: 4;
+        grid-row: 3;
+        background: url('https://img.freepik.com/free-photo/portrait-beautiful-natural-young-african-woman-with-afro-hair-black-model-red-silk-dress_627829-4729.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740') center/cover;
+    }
+    
+    .bento-cell-4 {
+        grid-column: 1 / span 4;
+        grid-row: 4;
+        height: 20px;
+        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        opacity: 0.3;
+    }
+    
+    /* Video Container */
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .smart-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+    
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 100%);
+        border-radius: 15px;
+    }
+    
+    @media (max-width: 768px) {
+        .about-container {
+            flex-direction: column;
+        }
+        
+        .bento-grid {
+            height: 400px;
+        }
+        
+        .bento-main {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 2;
+        }
+        
+        .bento-cell-1, .bento-cell-2, .bento-cell-3 {
+            grid-column: span 1;
+            grid-row: 3;
+        }
+    }
+</style>
+    <!-- Core Values Section -->
+    <section class="values-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Core Principles</h2>
+            <p class="section-subtitle">The pillars that define the Black Limitless experience</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">E</div>
+                <h3 class="value-title">Exclusivity</h3>
+                <p class="value-description">We maintain rigorous standards, ensuring our network comprises only the most exceptional individuals and establishments. This isn't just access—it's elevated entry.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">V</div>
+                <h3 class="value-title">Value Exchange</h3>
+                <p class="value-description">Our ecosystem thrives on mutual benefit—members gain unparalleled access while partners connect with their ideal clientele. Everyone wins.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">C</div>
+                <h3 class="value-title">Curated Excellence</h3>
+                <p class="value-description">Every experience, every partner, every interaction is meticulously vetted to meet our uncompromising standards of quality and sophistication.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">A</div>
+                <h3 class="value-title">Alignment</h3>
+                <p class="value-description">We believe in connecting those who operate on the same frequency—where business, pleasure, and purpose intersect at the highest level.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">L</div>
+                <h3 class="value-title">Legacy</h3>
+                <p class="value-description">This isn't just about immediate gratification—it's about building generational wealth, connections, and access that compound over time.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">D</div>
+                <h3 class="value-title">Discretion</h3>
+                <p class="value-description">Privacy is the ultimate luxury. Our members enjoy the highest levels of confidentiality in all interactions and transactions.</p>
+            </div>
+        </div>
+    </section>
+    
+   
+    
+   <!-- Our Benefits Section -->
+<section class="benefits-section">
+    <div class="benefits-container">
+        <div class="benefits-content">
+            <h2 class="benefits-title">Our <span class="glow-text">Premium Benefits</span></h2>
+            <p class="benefits-subtitle">Experience the Black Limitless Difference</p>
+            
+            <div class="benefits-text">
+                <p>We've redefined luxury networking by creating exclusive advantages that compound over time, delivering exponential value to our members.</p>
+                
+                <div class="benefit-item" data-animate="fadeInUp">
+                    <div class="benefit-icon pulse">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="benefit-details">
+                        <h3>Elite Access Portfolio</h3>
+                        <p>Unlock our curated selection of 180+ luxury partners across hospitality, travel, wellness, and professional services with preferential treatment.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item" data-animate="fadeInUp">
+                    <div class="benefit-icon pulse">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="benefit-details">
+                        <h3>Members-Only Economics</h3>
+                        <p>Our collective bargaining power secures you savings averaging 25-40% on premium services that typically never discount.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item" data-animate="fadeInUp">
+                    <div class="benefit-icon pulse">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="benefit-details">
+                        <h3>Discretion Guaranteed</h3>
+                        <p>Experience absolute privacy with our encrypted communication channels and anonymous booking options for sensitive engagements.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-cta" data-animate="fadeIn">
+                <a href="register.html" class="cta-link hover-glow">Unlock Your Benefits <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <div class="benefits-media">
+            <!-- Enhanced Bento Grid with Video -->
+           <div class="bento-grid-benefits">
+    <div class="bento-main-benefit video-hover-effect">
+        <div class="video-container-benefit">
+            <video autoplay loop muted playsinline class="smart-video-benefit">
+                <source src="https://videos.pexels.com/video-files/6969583/6969583-sd_640_360_25fps.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay-benefit"></div>
+            <div class="play-icon"><i class="fas fa-play"></i></div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Video container styles */
+.video-container-benefit {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Video element styles */
+.smart-video-benefit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Mobile-specific video styles */
+@media only screen and (max-width: 767px) {
+    .smart-video-benefit {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .video-container-benefit {
+        min-height: 300px; /* Ensure video has space on mobile */
+    }
+}
+
+/* Play icon styling (hidden when video is playing) */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-hover-effect:hover .play-icon {
+    opacity: 1;
+}
+
+/* Video overlay for better text visibility */
+.video-overlay-benefit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+</style>
+
+<script>
+// JavaScript to ensure video plays on mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.smart-video-benefit');
+    
+    videos.forEach(video => {
+        // Some browsers require this explicit play command
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Show play icon if autoplay fails
+                const playIcon = video.closest('.video-container-benefit').querySelector('.play-icon');
+                if (playIcon) playIcon.style.opacity = '1';
+                
+                // Make video clickable to start playback
+                video.addEventListener('click', function() {
+                    video.play();
+                    playIcon.style.opacity = '0';
+                });
+            });
+        }
+        
+        // Ensure these attributes are set
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+    });
+});
+</script>
+                
+                <div class="bento-cell-benefit cell-1 floating" style="background-image: url('https://img.freepik.com/free-photo/sunset-pool_1203-3191.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740')">
+                    <div class="cell-overlay">
+                        <span>VIP </span>
+                    </div>
+                </div>
+                
+                <div class="bento-cell-benefit cell-2 floating" style="background-image: url('https://img.freepik.com/free-photo/people-festival_1160-736.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740')">
+                    <div class="cell-overlay">
+                        <span>Global Network</span>
+                    </div>
+                </div>
+                
+                <div class="bento-cell-benefit cell-3 floating" style="background-image: url('https://img.freepik.com/free-photo/handsome-elegantly-dressed-african-american-man-working-classic-menswear-store_613910-21798.jpg?uid=R148061053&ga=GA1.1.784025258.1734678817&semt=ais_hybrid&w=740')">
+                    <div class="cell-overlay">
+                        <span>Concierge</span>
+                    </div>
+                </div>
+                
+                <div class="bento-cell-benefit cell-4 floating" style="background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary))">
+                    <div class="cell-content">
+                        <i class="fas fa-infinity"></i>
+                        <span>Limitless Potential</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Animated Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+</section>
+
+<style>
+    /* Benefits Section */
+    .benefits-section {
+        padding: 6rem 2rem;
+        background: linear-gradient(135deg, #080808 0%, #121212 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .benefits-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        align-items: center;
+    }
+    
+    .benefits-content {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .benefits-media {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .benefits-title {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        position: relative;
+        line-height: 1.2;
+    }
+    
+    .glow-text {
+        background: linear-gradient(to right, var(--gold-primary), var(--gold-secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        animation: textGlow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes textGlow {
+        0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+        100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+    }
+    
+    .benefits-subtitle {
+        font-size: 1.3rem;
+        color: var(--gold-primary);
+        margin-bottom: 2rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    
+    .benefits-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        opacity: 0.9;
+    }
+    
+    .benefit-item {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+    }
+    
+    .benefit-item.animated {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid var(--gold-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--gold-primary);
+        flex-shrink: 0;
+    }
+    
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+    }
+    
+    .benefit-details h3 {
+        font-size: 1.3rem;
+        color: var(--gold-primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .benefit-details p {
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    
+    .benefits-cta {
+        margin-top: 2rem;
+        opacity: 0;
+        transition: all 0.6s ease 0.3s;
+    }
+    
+    .benefits-cta.animated {
+        opacity: 1;
+    }
+    
+    .cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gold-primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+        border: 1px solid var(--gold-primary);
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hover-glow:hover {
+        text-shadow: 0 0 10px var(--gold-primary);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+    
+    /* Enhanced Bento Grid */
+    .bento-grid-benefits {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 12px;
+        height: 500px;
+        max-width: 600px;
+        margin: 0 auto;
+        perspective: 1000px;
+    }
+    
+    .bento-main-benefit {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 3;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        transform-style: preserve-3d;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .video-hover-effect:hover {
+        transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+        box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+    }
+    
+    .video-container-benefit {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .smart-video-benefit {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: transform 0.5s ease;
+    }
+    
+    .bento-main-benefit:hover .smart-video-benefit {
+        transform: scale(1.05);
+    }
+    
+    .video-overlay-benefit {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, transparent 100%);
+        border-radius: 15px;
+    }
+    
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--gold-primary);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+    
+    .bento-main-benefit:hover .play-icon {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    .bento-cell-benefit {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+    
+    .floating {
+        animation: floating 6s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .cell-1 {
+        grid-column: 4;
+        grid-row: 1;
+        animation-delay: 0.2s;
+    }
+    
+    .cell-2 {
+        grid-column: 4;
+        grid-row: 2;
+        animation-delay: 0.4s;
+    }
+    
+    .cell-3 {
+        grid-column: 4;
+        grid-row: 3;
+        animation-delay: 0.6s;
+    }
+    
+    .cell-4 {
+        grid-column: 1 / span 4;
+        grid-row: 4;
+        height: 20px;
+        background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        opacity: 0.3;
+    }
+    
+    .cell-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .bento-cell-benefit:hover .cell-overlay {
+        opacity: 1;
+        background: rgba(0,0,0,0.6);
+    }
+    
+    .cell-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--bg-dark);
+        font-weight: bold;
+    }
+    
+    .cell-content i {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Custom Cursor */
+    .custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(255, 215, 0, 0.5);
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        mix-blend-mode: screen;
+        z-index: 9999;
+        transition: transform 0.1s ease;
+        display: none;
+    }
+    
+    .cursor-follower {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--gold-primary);
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9998;
+        transition: all 0.3s ease, width 0.2s ease, height 0.2s ease;
+        display: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .benefits-title {
+            font-size: 2.2rem;
+        }
+        
+        .bento-grid-benefits {
+            height: 400px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .benefits-container {
+            flex-direction: column;
+        }
+        
+        .bento-main-benefit {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 2;
+        }
+        
+        .cell-1, .cell-2, .cell-3 {
+            grid-column: span 1;
+            grid-row: 3;
+        }
+        
+        .benefit-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .custom-cursor, .cursor-follower {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    // Animate benefit items on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const benefitItems = document.querySelectorAll('.benefit-item');
+        const benefitsCta = document.querySelector('.benefits-cta');
+        
+        const animateOnScroll = () => {
+            benefitItems.forEach((item, index) => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (itemPosition < screenPosition) {
+                    setTimeout(() => {
+                        item.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            const ctaPosition = benefitsCta.getBoundingClientRect().top;
+            const ctaScreenPosition = window.innerHeight / 1.3;
+            
+            if (ctaPosition < ctaScreenPosition) {
+                benefitsCta.classList.add('animated');
+            }
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+        
+        // Custom cursor effect
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+        
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('.benefit-item, .bento-cell-benefit, .cta-link, .bento-main-benefit');
+        
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                cursor.style.background = 'rgba(255, 215, 0, 0.7)';
+                follower.style.width = '20px';
+                follower.style.height = '20px';
+                follower.style.borderColor = 'var(--gold-secondary)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.background = 'rgba(255, 215, 0, 0.5)';
+                follower.style.width = '40px';
+                follower.style.height = '40px';
+                follower.style.borderColor = 'var(--gold-primary)';
+            });
+        });
+    });
+</script>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Transcend Ordinary Access?</h2>
+            <p class="cta-text">Join a network where your ambition is matched by unparalleled opportunities and your lifestyle is elevated by design.</p>
+            <div class="cta-buttons">
+                <a href="register.html">
+                    <button class="cta-button-primary">Apply for Membership</button>
+                </a>
+                <a href="contact.html">
+                    <button class="cta-button-secondary">Partner With Us</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <div class="logo"></div>
+                    <span class="footer-logo-text">Black Limitless</span>
+                </div>
+                <p class="footer-about">The premier network for those who demand more—bridging elite individuals with luxury experiences through mutual value exchange.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="howitworks.html">How It Works</a></li>
+                    <li><a href="benefits.html">Benefits</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Membership</h3>
+                <ul class="footer-links">
+                    <li><a href="register.html">Apply Now</a></li>
+                    <li><a href="benefits.html">Member Benefits</a></li>
+                    <li><a href="benefits.html">Testimonials</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                  
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Partners</h3>
+                <ul class="footer-links">
+                    <li><a href="Partner.html">Partner With Us</a></li>
+                    <li><a href="Partner.html">Partner Benefits</a></li>
+                 
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy;  Black Limitless Network. All rights reserved. | <a href="Termsofservice.html">Privacy Policy</a> | <a href="Termsofservice.html">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Create floating diamonds
+        function createDiamonds() {
+            const diamondGrid = document.getElementById('diamondGrid');
+            const diamondCount = 20;
+            
+            for (let i = 0; i < diamondCount; i++) {
+                const diamond = document.createElement('div');
+                diamond.classList.add('diamond');
+                
+                // Random positioning
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 15 + 10;
+                
+                // Random delay for animation
+                const delay = Math.random() * 15;
+                
+                diamond.style.left = `${posX}%`;
+                diamond.style.top = `${posY}%`;
+                diamond.style.width = `${size}px`;
+                diamond.style.height = `${size}px`;
+                diamond.style.animationDelay = `${delay}s`;
+                
+                diamondGrid.appendChild(diamond);
+            }
+        }
+        
+        // Animate stats counting up
+        function animateStats() {
+            const memberCount = document.getElementById('memberCount');
+            const partnerCount = document.getElementById('partnerCount');
+            const savingsCount = document.getElementById('savingsCount');
+            const countriesCount = document.getElementById('countriesCount');
+            
+            const targetMembers = 2500;
+            const targetPartners = 180;
+            const targetSavings = 12.5;
+            const targetCountries = 42;
+            
+            const duration = 2000; // 2 seconds
+            const interval = 20; // update every 20ms
+            const steps = duration / interval;
+            
+            const memberStep = targetMembers / steps;
+            const partnerStep = targetPartners / steps;
+            const savingsStep = targetSavings / steps;
+            const countriesStep = targetCountries / steps;
+            
+            let currentMembers = 0;
+            let currentPartners = 0;
+            let currentSavings = 0;
+            let currentCountries = 0;
+            
+            const memberInterval = setInterval(() => {
+                currentMembers += memberStep;
+                if (currentMembers >= targetMembers) {
+                    currentMembers = targetMembers;
+                    clearInterval(memberInterval);
+                }
+                memberCount.textContent = Math.floor(currentMembers).toLocaleString();
+            }, interval);
+            
+            const partnerInterval = setInterval(() => {
+                currentPartners += partnerStep;
+                if (currentPartners >= targetPartners) {
+                    currentPartners = targetPartners;
+                    clearInterval(partnerInterval);
+                }
+                partnerCount.textContent = Math.floor(currentPartners).toLocaleString();
+            }, interval);
+            
+            const savingsInterval = setInterval(() => {
+                currentSavings += savingsStep;
+                if (currentSavings >= targetSavings) {
+                    currentSavings = targetSavings;
+                    clearInterval(savingsInterval);
+                }
+                savingsCount.textContent = currentSavings.toFixed(1);
+            }, interval);
+            
+            const countriesInterval = setInterval(() => {
+                currentCountries += countriesStep;
+                if (currentCountries >= targetCountries) {
+                    currentCountries = targetCountries;
+                    clearInterval(countriesInterval);
+                }
+                countriesCount.textContent = Math.floor(currentCountries).toLocaleString();
+            }, interval);
+        }
+        
+        // Mobile menu toggle
+        function toggleMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            
+            // Toggle body scroll
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        }
+        
+        // Initialize animations when page loads
+        window.addEventListener('load', () => {
+            createDiamonds();
+            
+            // Set up hamburger menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            const overlay = document.getElementById('overlay');
+            
+            hamburger.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+            
+            // Only animate stats when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(document.querySelector('.stats-section'));
+        });
+    </script>
+</body>
+</html>
